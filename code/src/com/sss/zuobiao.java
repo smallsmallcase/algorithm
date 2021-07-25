@@ -35,6 +35,7 @@ public class zuobiao{
         }
 
         for(Map.Entry e:map.entrySet()){
+
             System.out.println(e.getKey() + " " + e.getValue());
         }
     }

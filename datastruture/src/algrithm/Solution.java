@@ -36,7 +36,7 @@ class Solution{
      * dp[2][N+1]
      * 因为最终不需要dp里面的每个值
      */
-    public int maxValue2(inv N,int C,int[] v,int[] w){
+    public int maxValue2(int N,int C,int[] v,int[] w){
         int[][] dp = new int[2][C+1];
 
         //第一件物品
@@ -54,5 +54,27 @@ class Solution{
             }
         }
         return dp[(N-1)&1][C];
+    }
+
+    /**
+     * 从上面可以知道，dp[i][j]只依赖上一层(i-1)的第j列和j-v[i]列。
+     */
+    public int maxValue3(int N,int C,int[] v,int[] w){
+
+        int[] dp = new int[C+1];
+
+        for(int i=0;i<N;i++){
+            for(int j=C;j>=v[i];j--){
+
+                //不选改物品
+                int x = dp[j];
+                //选择改物品
+                int y = dp[j-v[i]]+w[i];
+                dp[j] = Math.max(x,y);
+
+            }
+        }
+
+        return dp[C];
     }
 }

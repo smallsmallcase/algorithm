@@ -2,7 +2,7 @@
 /**
  * 背包问题
  */
-class Solution{
+class PackageSolution{
 
     /**
      * N:物品数量

@@ -44,9 +44,8 @@ class RecoverTree99 {
             if(pre.val>p.val){
                 if(firstNode==null){
                     firstNode = pre;
-                }else{
-                    secondNode = p;
                 }
+                secondNode = p;
             }
 
             pre = p;
@@ -61,7 +60,30 @@ class RecoverTree99 {
     /**
      * 递归
      */
-    public void recoverTree(TreeNode root){
-        
+    TreeNode pre = new TreeNode(Integer.MIN_VALUE);
+    TreeNode firstNode = null;
+    TreeNode secondNode = null;
+
+    public void recoverTree2(TreeNode root){
+        in_order(root);
+        int tmp = firstNode.val;
+        firstNode.val = secondNode.val;
+        secondNode.val= tmp;
+    }
+
+    private void in_order(TreeNode node){
+        if(node==null){
+            return;
+        }
+        in_order(node.left);
+
+        if(pre.val>node.val){
+            if(firstNode==null){
+                firstNode = pre;
+            }
+            secondNode = node;
+        }
+        pre = node;
+        in_order(node.right);
     }
 }

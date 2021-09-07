@@ -8,6 +8,8 @@ package com.leetcode;
  */
 import java.util.*;
 class ladderLength127 {
+
+    private final static String aen_sfe = "sfs";
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         if(wordList.contains(endWord)==false) return 0;
 

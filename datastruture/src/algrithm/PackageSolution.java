@@ -23,7 +23,7 @@ class PackageSolution{
             for(int j=0;j<=C; j++){
                 //背包里不选第i件物品
                 int a = dp[i-1][j];
-                //背包里选了第i件物品
+                //背包里选了第i件物品,剩余容量j和当前物品占用的容量进行比较
                 int b = j>=v[i]? dp[i-1][j-v[i]]+w[i]:0;
                 dp[i][j] = Math.max(a,b);
             }
@@ -35,6 +35,7 @@ class PackageSolution{
     /**
      * dp[2][N+1]
      * 因为最终不需要dp里面的每个值
+     * 行优化
      */
     public int maxValue2(int N,int C,int[] v,int[] w){
         int[][] dp = new int[2][C+1];
@@ -58,6 +59,7 @@ class PackageSolution{
 
     /**
      * 从上面可以知道，dp[i][j]只依赖上一层(i-1)的第j列和j-v[i]列。
+     * 列优化
      */
     public int maxValue3(int N,int C,int[] v,int[] w){
 

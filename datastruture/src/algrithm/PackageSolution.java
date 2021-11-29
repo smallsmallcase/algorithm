@@ -59,7 +59,7 @@ class PackageSolution{
 
     /**
      * 从上面可以知道，dp[i][j]只依赖上一层(i-1)的第j列和j-v[i]列。
-     * 列优化
+     * 
      */
     public int maxValue3(int N,int C,int[] v,int[] w){
 

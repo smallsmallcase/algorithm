@@ -14,6 +14,7 @@ public class Sort<T extends Comparable<? super T>> {
 
     /**
      * 插入排序
+     * 前p个有序
      * @param array
      */
     private void insertSort(T[] array) {

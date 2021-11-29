@@ -17,20 +17,20 @@ public class FastSort {
         if (left>=right) {
             return;
         }
-        int index = PartSort(left, right);
+        int index = partition(left, right);
         QuickSort(left, index - 1);
         QuickSort(index + 1, right);
         //数组中第index小的数字确定，包括位置
     }
 
     //左右指针法
-    private int PartSort(int left, int right) {
+    private int partition(int left, int right) {
         int mid = right;
         while (left < right) {
-            while (array[left] <= array[mid] && left < right) {
+            while (left < right && array[left] <= array[mid]) {
                 left++;
             }
-            while (left<right&&array[right]>=array[mid]) {
+            while (left < right && array[right] >= array[mid]) {
                 right--;
             }
             swap(left, right);
